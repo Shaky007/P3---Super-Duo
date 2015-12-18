@@ -67,7 +67,7 @@ public class myScoresWidgetRemoveViewsService extends RemoteViewsService {
 
                 Uri uri = DatabaseContract.scores_table.buildScoreWithDate();
 
-                String todayDate = this.DateString(3);
+                String todayDate = this.DateString(0);
 
                 cursor = getContentResolver().query(uri, ScoresQuery.COLUMNS, null, new String[]{todayDate}, null);
 

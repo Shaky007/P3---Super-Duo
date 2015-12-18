@@ -27,6 +27,7 @@ public class MainActivity extends ActionBarActivity
                         .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                         .build());
 
+        Utilies.setContext(getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(LOG_TAG, "Reached MainActivity onCreate");

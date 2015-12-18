@@ -4,13 +4,16 @@ import android.annotation.TargetApi;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.widget.RemoteViews;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import barqsoft.footballscores.service.myFetchService;
 import barqsoft.footballscores.service.myScoresWidgetRemoveViewsService;
 
 /**
@@ -27,7 +30,6 @@ public class scoresWidget extends AppWidgetProvider {
             updateAppWidget(context, appWidgetManager, appWidgetIds[i]);
         }
     }
-
 
     @Override
     public void onEnabled(Context context) {
@@ -57,6 +59,16 @@ public class scoresWidget extends AppWidgetProvider {
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
+    }
+
+    @Override
+    public void onReceive(@NonNull Context context, @NonNull Intent intent) {
+        super.onReceive(context, intent);
+        if (myFetchService.DATA_UPDATE.equals(intent.getAction())) {
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, getClass()));
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.scores_list);
+        }
     }
 }
 
