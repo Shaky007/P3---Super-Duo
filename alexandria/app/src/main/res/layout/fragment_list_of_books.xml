@@ -15,9 +15,10 @@
             android:contentDescription="@string/search"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_marginTop="5dp"
-            android:layout_alignParentEnd="true"/>
+            />
 
         <EditText
             android:layout_width = "fill_parent"
@@ -30,22 +31,28 @@
             android:layout_toLeftOf="@+id/searchButton"
             android:layout_toStartOf="@+id/searchButton"
             android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"/>
 
 
-        <ListView android:id="@+id/listOfBooks"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:layout_alignParentLeft="true"
-                  android:layout_marginLeft="0dp"
-                  android:layout_below="@+id/searchText"
-                  android:layout_alignRight="@id/searchButton"
-                  android:layout_alignParentRight="true"
-                  android:layout_alignParentStart="true"
-                  android:layout_toRightOf="@id/searchButton"/>
-
-
+        <ListView
+            android:id="@+id/listOfBooks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="0dp"
+            android:layout_below="@+id/searchText"
+            android:layout_alignRight="@id/searchButton"
+            android:layout_alignEnd="@id/searchButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/searchButton"
+            android:layout_toEndOf="@id/searchButton"
+            />
 
     </RelativeLayout>
 

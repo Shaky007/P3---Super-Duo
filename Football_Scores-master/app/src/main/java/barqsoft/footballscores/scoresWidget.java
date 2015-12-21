@@ -31,20 +31,15 @@ public class scoresWidget extends AppWidgetProvider {
         }
     }
 
-    @Override
-    public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
-    }
-
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
         CharSequence widgetText = context.getString(R.string.appwidget_text);
+
+        // Update scores, on new scores a broadcast is sent and caught by OnReceive
+        Intent service_start = new Intent(context, myFetchService.class);
+        context.startService(service_start);
+
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.scores_list_widget);
 
