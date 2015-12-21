@@ -81,7 +81,7 @@ public class Utilies
 
     public static int getTeamCrestByTeamName (String teamname)
     {
-        if (teamname==null){return R.drawable.no_icon;}
+        if (teamname==null){return R.drawable.ic_launcher;}
         switch (teamname)
         { //This is the set of icons that are currently in the app. Feel free to find and add more
             //as you go.
@@ -96,7 +96,7 @@ public class Utilies
             case "Sunderland AFC" : return R.drawable.sunderland;
             case "Stoke City FC" : return R.drawable.stoke_city;
             case "Chelsea FC" : return R.drawable.stoke_city; // added
-            default: return R.drawable.no_icon;
+            default: return R.drawable.ic_launcher;
         }
     }
 }
